@@ -15,6 +15,12 @@ This is the official landing site introducing the platform and its vision.
 - ⚽ **Football Community**: Match coverage, live discussions, and analysis.
 - 🎉 **Events & Contests**: Interactive activities and seasonal challenges.
 - 💡 **Tech Talk**: Open space for modern technology and development discussions.
+  
+---
+
+## 🔗 Live Demo
+
+Check out the live website: [velura.space](https://velura.space)
 
 ---
 
