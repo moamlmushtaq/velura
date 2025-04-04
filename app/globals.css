@@ -1,0 +1,547 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@300;600&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #050017; /* خلفية داكنة */
+  --color-text: #d4d4d4;
+  --color-neon-blue: #00d9ff;
+  --color-neon-purple: #9f6ace;
+  --color-card: rgba(255, 255, 255, 0.05);
+  --gradient-button: linear-gradient(90deg, #00d9ff, #9f6ace);
+  --color-footer-bg: linear-gradient(180deg, rgba(10, 10, 20, 0) 0%, rgba(10, 10, 30, 1) 100%);
+  --footer-border: 0 0 15px rgba(0, 217, 255, 0.3);
+  --color-header-bg: rgba(5, 0, 23, 0.8);
+  --color-header-hover: rgba(0, 217, 255, 0.2);
+
+}
+* {
+  cursor: none !important;
+}
+/* تحسين تصميم كروت الإداريين */
+.team-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+/* تنسيق الصورة */
+.team-card img {
+  border-radius: 50%;
+  border: 3px solid var(--color-neon-blue, #0ff);
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover img {
+  transform: scale(1.1);
+}
+
+/* العنصر الذي سيعمل كمؤشر مخصص */
+.custom-cursor {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  background: var(--color-neon-blue, #0ff);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px var(--color-neon-blue, #0ff);
+  transition: width 0.2s, height 0.2s, transform 0.1s;
+  z-index: 9999;
+  mix-blend-mode: difference; /* لجعل التأثير جذاباً */
+}
+
+/* التأثير عند التفاعل مع الأزرار */
+.cursor-hover {
+  width: 25px;
+  height: 25px;
+  background: rgba(0, 255, 255, 0.6);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
+}
+
+
+/* تحسين خلفية Hero */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+/* تحسين العناوين */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Tajawal", sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* تحسين العنوان */
+.hero-title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #DDA0DD; /* بنفسجي فاتح */
+  text-shadow: 0 0 20px rgba(221, 160, 221, 0.8); /* تأثير نيون بنفسجي */
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 1.2s forwards;
+}
+
+
+/* تحسين الفقرة */
+.hero-text {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  max-width: 600px;
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 1.5s forwards 0.3s;
+}
+
+
+
+/* تحسين زر "اكتشف المزيد" */
+.btn-hero {
+  background: var(--color-gradient);
+  color: rgb(235, 235, 235);
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeInScale 1.5s forwards 0.6s;
+}
+
+.btn-hero:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.7);
+}
+
+/* تأثير النجوم المتحركة */
+@keyframes moveStars {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1000px 1000px;
+  }
+}
+
+.hero-stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("./stars.png"); /* صورة نجوم شفافة */
+  opacity: 0.2;
+  animation: moveStars 60s linear infinite;
+}
+
+/* تأثيرات الحركة */
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* تحسين تنسيق قسم المستقبل */
+.future-section {
+  background: var(--color-section-bg);
+  padding: 4rem 1.5rem;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-soft);
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+/* تحسين العنوان */
+.future-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+/* تحسين النص */
+.future-text {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+/* تحسين زر "انضم إلينا الآن" */
+.btn-future {
+  background: linear-gradient(90deg, var(--color-neon-blue), var(--color-neon-purple));
+  color: black;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: var(--box-shadow-soft);
+  transition: all 0.3s ease-in-out;
+  margin-top: 1.5rem;
+}
+
+.btn-future:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.15);
+}
+
+
+
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Cairo", sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* تحسين الأزرار */
+.btn-primary {
+  background: var(--gradient-button);
+  color: black;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.7);
+}
+
+
+/* تحسين بطاقات المجتمع */
+.community-card {
+  background: var(--color-card-bg);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow-neon);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.community-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 217, 255, 0.5);
+}
+
+.community-icon {
+  font-size: 2rem;
+  color: var(--color-neon-blue);
+  margin-bottom: 1rem;
+}
+
+
+
+/* تحسين البطاقات */
+.card {
+  background: var(--color-card);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 217, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, rgba(0, 217, 255, 0.4), rgba(159, 106, 206, 0.4));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 217, 255, 0.3);
+}
+
+
+
+
+/* تحسين الهيدر */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--color-header-bg);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 217, 255, 0.1);
+}
+
+/* تحسين الروابط */
+.navbar a {
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.navbar a:hover {
+  color: var(--color-neon-blue);
+  background: var(--color-header-hover);
+}
+
+/* تحسين زر البحث */
+.search-button {
+  color: var(--color-neon-purple);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.search-button:hover {
+  transform: scale(1.1);
+  color: var(--color-neon-blue);
+  background: var(--color-header-hover);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* تحسين الفوتر */
+.footer {
+  background: var(--color-footer-bg);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--color-text);
+  box-shadow: var(--footer-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 80%;
+  height: 4px;
+  background: var(--color-neon-blue);
+  box-shadow: 0 0 20px var(--color-neon-blue);
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.footer-links a {
+  color: var(--color-neon-blue);
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+  color: var(--color-neon-purple);
+}
+/* تحسين تنسيق قسم من نحن */
+.about-section {
+  background: var(--color-bg);
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: right;
+  gap: 2rem;
+}
+
+/* تحسين العنوان */
+.about-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.about-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-neon-blue), var(--color-neon-purple));
+  margin-top: 5px;
+}
+
+/* تحسين النصوص */
+.about-text {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  max-width: 550px;
+  line-height: 1.7;
+}
+
+/* تحسين الاسم ليظهر كالشعار */
+.about-name {
+  font-size: 3.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, var(--color-neon-blue), var(--color-neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(0, 217, 255, 0.4);
+  text-align: center;
+}
+.header-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, var(--color-neon-blue), var(--color-neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(0, 217, 255, 0.4);
+  text-align: center;
+}
+
+
+.platform-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.platform-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+}
+
+
+/* تأثير الظهور التدريجي */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* تحسين إحصائيات السيرفر */
+.server-stats {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: var(--color-text);
+  text-align: center;
+  font-weight: bold;
+  opacity: 0; /* يبدأ غير مرئي */
+  animation: fadeInUp 1s ease-in-out forwards 0.6s; /* ظهور تدريجي */
+}
+
+/* تحسين مظهر الأرقام */
+.stat-number {
+  color: var(--color-neon-blue);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
